@@ -248,3 +248,166 @@ switch (number) {
   default: // Se o valor não for igual a nenhum dos cases ele executa o bloco de código abaixo
     console.log("Não foi encontrado caso para o valor " + number);
 }
+
+
+
+
+// ========= Aula 04 - 23/05/2024 =========
+
+// Revisão array e objeto
+// O for é utilizado para repetir um bloco de código uma quantidade 'x' de vezes
+let arrayStrings = ["Biscoito", "Arroz", "Maçã", "Pilha"]; // Array de strings
+let numeros = [1,2,3,4]; // Array de números
+let misturado = [1, "Ana", 3, "Leandro"]; // Array de tipos diferentes
+
+// Para acessar um valor de um array é necessário informar o índice
+// O índice é um número inteiro que começa em 0
+console.log(arrayStrings[0]); // Imprime no console "Biscoito"
+console.log(arrayStrings[2]); // Imprime no console "Maçã"
+
+//Declaração de um objeto
+let usuario = {
+  nome:"Suene",
+  idade: 32,
+  cpf: "928039432094",
+  endereco: {
+    rua: "Avenida 1"
+  }
+}
+//Acessando os valores do objeto
+//Forma 1 - Acessando o valor por meio do ponto
+console.log(usuario.idade); // Imprime no console 32
+//Forma 2 - Acessando o valor por meio de uma string
+console.log(usuario["idade"]); // Imprime no console 32
+//Forma 3 - Acessando um objeto dentro de outro objeto
+document.write(usuario.endereco.rua); // Imprime no documento "Avenida 1"
+
+
+// ** Métodos de array - push, pop e length
+let itensCompras = ["Biscoito", "Arroz", "Maçã", "Pilha"];
+console.log("Antes do pop" + itensCompras);
+console.log("Depois do pop" + itensCompras.pop()); // Remove o último item do array
+// itensCompras = ["Biscoito", "Arroz", "Maçã"]
+
+console.log(itensCompras.length); // Imprime no console 3
+
+itensCompras.push("Capsula de café"); // Adiciona um item no final do array
+// itensCompras = ["Biscoito", "Arroz", "Maçã", "Capsula de café"]
+console.log("Depois do push " + itensCompras);
+itensCompras.push("Macarrão"); // Adiciona um item no final do array
+// itensCompras = ["Biscoito", "Arroz", "Maçã", "Capsula de café", "Macarrão"]
+console.log("Depois do push " +itensCompras);
+
+console.log(itensCompras.length); // Imprime no console 5
+
+
+// ** Estrutura de repetição - for
+// debugger; // Pausa a execução do código
+
+// Basicamente um laço de repetição for é composto por:
+// for(inicialização; condição; incremento){}
+console.log("Antes de entrar no for");
+for( i = 0 ; i < 5 ; i++ ){
+  console.log("Valor de i = " + i);
+}
+console.log("Sai do for");
+
+// Exemplo 2
+let arrayNomes = ["Ana", "Leandro", "Antonio", "Heverton"];
+arrayNomes.push("Suzi");
+// arrayNomes = ["Ana", "Leandro", "Antonio", "Heverton", "Suzi"]
+for( i = 0 ; i < arrayNomes.length ; i++ ){
+  document.write("<br/>" + arrayNomes[i]);
+}
+
+// ** Estrutura de repetição - for...of
+// O for...of é utilizado para percorrer todo um array obrigatóriamente
+// ele não permite que você pule um item do array
+// Sua sintaxe é for(var item of array){} onde item é a variável local 
+// que irá receber o valor de cada item do array
+for( var itemNome of arrayNomes){
+  document.write("<br/>" + itemNome);
+}
+
+
+// ** Estrutura de repetição - forEach
+// O forEach é utilizado para percorrer todo um array
+// Sua sintaxe é array.forEach((item, indice, array) => {}) onde 
+// *item é o valor do item do array, 
+// *indice é a posição do item no array
+// *array é o array completo
+
+let professores = [
+  {
+    nome:"Rayane",
+    especialidade:"Java"
+  },
+  {
+    nome:"Eduardo",
+    especialidade:"Angular"
+  },
+  {
+    nome:"Julia",
+    especialidade:"Javascript"
+  }
+]
+
+professores.forEach((item, indice, array)=>{
+  console.log(item.nome);
+  console.log(indice);
+  // console.log(array);
+})
+
+
+
+// ** Estrutura de repetição - while
+// O while é utilizado para repetir um bloco de código 
+// enquanto uma condição for verdadeira, ele primeiro verifica
+// a condição e depois executa o bloco de código
+
+// Sua sintaxe é while(condição){}
+
+//Exemplo 1
+var contador = 0; // Inicialização
+while (contador <= 2) { // Condição
+  console.log('contador:', contador);
+  contador++; // Responsável por alterar a condição
+}
+
+//Exemplo 2
+let resposta = "Não"; // Inicialização
+while (resposta == "Não") { // Condição
+  resposta = prompt("Todo mundo dessa sala vai tirar 10 no projeto?"); // Responsável por alterar a condição
+}
+
+
+
+// ** Estrutura de repetição - do...while
+// O do...while é utilizado para repetir um bloco de código 
+// e depois verificar se a condição é verdadeira
+do {
+  resposta = prompt("Todo mundo dessa sala vai tirar 10 no projeto?");
+
+} while (resposta == "Não");
+
+
+
+// ========= Sexta da revisão - 24/05/2024 =========
+// Resposta do slide 04 - pag 11
+for(var i=1; i<=10 ; i++){
+  if( i%2 == 0 ){
+    document.write(i + "<br>");
+  }
+}
+
+// Resposta do slide 04 - pag 14
+let array = [];
+let contador = 1;
+while(contador <= 10){
+  if(contador % 2 != 0){
+    array.push(contador);
+  }
+
+  contador++; //contador = contador + 1;
+}
+console.log(array);
